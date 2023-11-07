@@ -1,16 +1,6 @@
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Heading,
-  SimpleGrid,
-  FormErrorMessage,
-  Image,
-  FormControl,
-} from "@chakra-ui/react";
+import { SimpleGrid, FormErrorMessage, FormControl } from "@chakra-ui/react";
 import { useGames } from "./hooks/useGames";
+import GameCard from "./components/GameCard";
 
 const GameGrid = () => {
   const {
@@ -30,29 +20,12 @@ const GameGrid = () => {
         </FormControl>
       )}
       <SimpleGrid
-        spacing={4}
-        templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
-        padding="15px"
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+        spacing={10}
+        padding="7px"
       >
         {games.map((game, index) => (
-          <Card key={index}>
-            <CardHeader>
-              <Heading size="md" justifyContent="center">
-                <Image
-                  src={game.background_image}
-                  height="70px"
-                  alt={game.name}
-                />
-              </Heading>
-            </CardHeader>
-            <CardBody>
-              {/* <Text></Text> */}
-              <Heading>{game.name}</Heading>
-            </CardBody>
-            <CardFooter>
-              <Button>View here</Button>
-            </CardFooter>
-          </Card>
+          <GameCard game={game} index={index}></GameCard>
         ))}
       </SimpleGrid>
     </>

@@ -5,7 +5,7 @@ import SkeletonCards from "./components/SkeletonCards";
 import GameCardContainer from "./components/GameCardContainer";
 
 const GameGrid = () => {
-  const { games, errorMessage, isLoading } = useGames();
+  const { data: games, errorMessage, isLoading } = useGames();
 
   const skeletons = [1, 2, 3, 4, 5, 6];
 
@@ -18,7 +18,7 @@ const GameGrid = () => {
       )}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        spacing={10}
+        spacing={4}
         padding="17px"
       >
         {isLoading

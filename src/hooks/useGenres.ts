@@ -1,44 +1,11 @@
-import { useEffect, useState } from "react";
-import genreService, { Genre } from "../services/genre-service";
-import { CanceledError } from "../services/api-client";
+import useData from "./useData";
 
-interface FetchGenres {
-  count: number;
-  results: Genre[];
+export interface Genre {
+  id: number;
+  name: string;
+  image_background: string;
 }
 
-const useGenres = () => {
-  const [genres, setGenres] = useState<Genre[]>([]);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-
-    const { request, cancel } = genreService.all<FetchGenres>();
-
-    request
-      .then((response) => {
-        setGenres(response.data.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        if (error instanceof CanceledError) return;
-        setErrorMessage(error.message);
-        setLoading(false);
-      });
-
-    return () => cancel();
-  }, []);
-
-  return {
-    genres,
-    errorMessage,
-    isLoading,
-    setGenres,
-    setErrorMessage,
-    setLoading,
-  };
-};
+const useGenres = () => useData<Genre>("/genres");
 
 export default useGenres;

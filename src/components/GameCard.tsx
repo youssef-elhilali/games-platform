@@ -6,14 +6,12 @@ import cropImageURL from "../services/image-url";
 
 interface Props {
   game: Game;
-  width: string;
-  borderRadius: string;
 }
 
-const GameCard = ({ game, width, borderRadius }: Props) => {
+const GameCard = ({ game }: Props) => {
   return (
     <>
-      <Card width={width} borderRadius={borderRadius} overflow="hidden">
+      <Card>
         <Image src={cropImageURL(game.background_image)} alt={game.name} />
         <CardBody>
           <Heading fontSize="2xl">{game.name}</Heading>

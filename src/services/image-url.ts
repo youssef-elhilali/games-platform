@@ -1,3 +1,5 @@
+import baseImage from "../assets/No-Image-Placeholder.webp";
+
 const cropImageURL = (url: string) => {
   if (url !== null) {
     const mediaIndex = url.indexOf("media/");
@@ -7,7 +9,7 @@ const cropImageURL = (url: string) => {
       url.substring(mediaIndex + 6)
     );
   } else {
-    return url;
+    return baseImage;
   }
 };
 

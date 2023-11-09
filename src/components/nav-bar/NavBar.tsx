@@ -3,11 +3,15 @@ import logo from "../../assets/logo.jpg";
 import ColorModeSwitch from "../ColorModeSwitch";
 import SearchGame from "./SearchGame";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (search: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack padding="15px" spacing={5}>
       <Image borderRadius="full" boxSize="70px" src={logo} alt="Dan Abramov" />
-      <SearchGame />
+      <SearchGame onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>
   );

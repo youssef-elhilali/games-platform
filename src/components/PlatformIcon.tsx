@@ -6,9 +6,9 @@ import {
   BsGlobe,
 } from "react-icons/bs";
 import { DiLinux } from "react-icons/di";
-import { Game } from "../services/games-service";
 import { Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
+import { Game } from "../hooks/useGames";
 
 interface Props {
   game: Game;

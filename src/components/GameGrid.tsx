@@ -1,9 +1,9 @@
 import { SimpleGrid, FormErrorMessage, FormControl } from "@chakra-ui/react";
-import { useGames } from "./hooks/useGames";
-import GameCard from "./components/GameCard";
-import SkeletonCards from "./components/SkeletonCards";
-import GameCardContainer from "./components/GameCardContainer";
-import { GameQuery } from "./App";
+import { useGames } from "../hooks/useGames";
+import GameCard from "./GameCard";
+import SkeletonCards from "./SkeletonCards";
+import GameCardContainer from "./GameCardContainer";
+import { GameQuery } from "../App";
 
 interface Props {
   gameQuery: GameQuery;
@@ -23,7 +23,7 @@ const GameGrid = ({ gameQuery }: Props) => {
       )}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        spacing={4}
+        spacing={5}
         padding="17px"
       >
         {isLoading

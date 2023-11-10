@@ -14,7 +14,6 @@ const GameCard = ({ game }: Props) => {
       <Card>
         <Image src={cropImageURL(game.background_image)} alt={game.name} />
         <CardBody>
-          <Heading fontSize="2xl">{game.name}</Heading>
           <HStack marginY="10px" justifyContent="space-between">
             <div>
               <PlatformIcon key={game.id} game={game} />
@@ -23,6 +22,7 @@ const GameCard = ({ game }: Props) => {
               <CriticScore game={game} />
             </div>
           </HStack>
+          <Heading fontSize="2xl">{game.name}</Heading>
         </CardBody>
       </Card>
     </>

@@ -3,8 +3,6 @@ import {
   Image,
   List,
   ListItem,
-  Spinner,
-  Text,
   Button,
   Heading,
 } from "@chakra-ui/react";
@@ -17,16 +15,13 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data: genres, isLoading, errorMessage } = useGenres();
-
-  if (isLoading) return <Spinner />;
+  const { data: genres } = useGenres();
 
   return (
     <>
       <Heading fontSize="2xl" marginBottom={3}>
         Genres
       </Heading>
-      {errorMessage && <Text color="red.300">{errorMessage}</Text>}
       <List>
         {genres.map((genre) => (
           <ListItem key={genre.id} paddingY={2}>

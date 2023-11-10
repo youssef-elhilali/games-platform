@@ -1,5 +1,5 @@
-import { Game } from "../services/games-service";
 import { Badge } from "@chakra-ui/react";
+import { Game } from "../hooks/useGames";
 
 interface Props {
   game: Game;
